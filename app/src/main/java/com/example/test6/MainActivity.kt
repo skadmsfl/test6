@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Log.d(TAG, "onCreate called")
+        val downloadData = DownloadData()
+        downloadData.execute("URL goes here")
+        Log.d(TAG, "onCreate: done")
 
     }
 
@@ -21,10 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
+            Log.d(TAG, "onPostExecute: parameter is $result")
         }
 
         override fun doInBackground(vararg p0: String?): String {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            Log.d(TAG, "doInBackground: starts with ${p0[0]}")
+            return "doInBackground completed"
         }
     }
 }
